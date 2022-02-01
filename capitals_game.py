@@ -1,4 +1,5 @@
 import random
+import os
 
 states = [
 {
@@ -169,4 +170,6 @@ for state in (states):
         print("Wrong:", wrong, ":(")
 print("Game over! You got", correct, "correct and", wrong, "wrong.")
 
-restart = input("Would you like to play again? [Yes/No]")
+restart = input("Would you like to play again? [Y/N]")
+if restart == "Y" or "y":
+    os.execv(sys.executable, ['python3'] + capitals_game.py)
