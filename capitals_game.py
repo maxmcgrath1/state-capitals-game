@@ -154,15 +154,23 @@ states = [
     "capital": "Cheyenne"
 }]
 
-random.shuffle(states)
 # print(states[0]["name"])
 
-found_state = states[0]["name"]
-state_capital = states[0]["capital"]
+correct = 0
 
-answer = input(f"Please enter the state capital of {found_state}: ")
 
-if answer == state_capital:
-    print("correct")
-else:
-    print("wrong")
+def play_game():
+    random.shuffle(states)
+    found_state = states[0]["name"]
+    state_capital = states[0]["capital"]
+    def question():
+        answer = input(f"Please enter the state capital of {found_state, state_capital}: ")
+        return answer
+
+    if question() == state_capital:
+        global correct
+        correct += 1
+        print("correct")
+    else:
+        print("wrong")
+play_game()
