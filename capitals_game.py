@@ -158,16 +158,18 @@ states = [
 
 
 correct = 0
+wrong = 0
 
-def play_game(correct_answer):
+def play_game(correct_answer, wrong_answer):
     random.shuffle(states)
     found_state = states[0]["name"]
     state_capital = states[0]["capital"]
     answer = input(f"Please enter the state capital of {found_state, state_capital}: ")
     if answer == state_capital:
         correct_answer += 1
-        print("Correct: ", correct_answer)
+        print("Correct:", correct_answer)
     else:
-        print("wrong")
-    play_game(correct_answer)
-play_game(correct)
+        wrong_answer += 1
+        print("Wrong:", wrong_answer)
+    play_game(correct_answer, wrong_answer)
+play_game(correct, wrong)
