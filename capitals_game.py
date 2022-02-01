@@ -168,3 +168,5 @@ for state in (states):
         wrong += 1
         print("Wrong:", wrong, ":(")
 print("Game over! You got", correct, "correct and", wrong, "wrong.")
+
+restart = input("Would you like to play again? [Yes/No]")
