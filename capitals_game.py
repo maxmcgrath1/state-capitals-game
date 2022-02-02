@@ -172,7 +172,7 @@ for state in (states):
 print("Game over! You got", correct, "correct and", wrong, "wrong.")
 
 restart = input("Would you like to play again? [Y/N]: ")
-if restart == "Y" or "y":
+if restart == "Y" or restart == "y":
     os.system("python3 capitals_game.py")
-else:
+if restart == "N" or restart == "n":
     print("Thanks for playing!")
