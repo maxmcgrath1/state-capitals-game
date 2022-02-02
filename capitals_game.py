@@ -158,34 +158,35 @@ print(
 '''
 Hello! Welcome to the state capitals game! It's time to test your knowledge of the US and its 50 capitals!
 
-Please use proper capitalization when making guesses.
+Good Luck!
 
 ==================================================BEGIN!==================================================
 '''
 )
 
-correct = 0
-wrong = 0
-random.shuffle(states)
+def play_game():
+    correct = 0
+    wrong = 0
+    random.shuffle(states)
+    for state in (states):
+        answer = input("Please enter the state capital of " + state["name"] + ": ")
+        if answer.lower() == state["capital"].lower():
+            correct += 1
+            print("That's right! You've gotten", correct,"/50 correct.")
+        else:
+            wrong += 1
+            print("Sorry, that's wrong. You've gotten", wrong,"/50 incorrect.")
+    print("Game over! You got", correct,"/50 correct and", wrong,"/50 wrong.")
 
-for state in (states):
-    answer = input("Please enter the state capital of " + state["name"] + ": ")
-    if answer == state["capital"]:
-        correct += 1
-        print("That's right! You've gotten", correct,"/50 correct.")
+    restart = input("Would you like to play again? Press 'Y' and enter. Use any other key to leave: ")
+    if restart.lower() == "y":
+        play_game()
     else:
-        wrong += 1
-        print("Sorry, that's wrong. You've gotten", wrong,"/50 incorrect.")
-print("Game over! You got", correct,"/50 correct and", wrong,"/50 wrong.")
-
-restart = input("Would you like to play again? Press 'Y' and enter. Use any other key to leave: ")
-if restart == "Y" or restart == "y":
-    os.system("python3 capitals_game.py")
-else:
-    print(
-    '''
-    ====================================================================================================
-    Thanks for playing!
-    ====================================================================================================
-    '''
-    )
+        print(
+        '''
+        ====================================================================================================
+        Thanks for playing!
+        ====================================================================================================
+        '''
+        )
+play_game()
