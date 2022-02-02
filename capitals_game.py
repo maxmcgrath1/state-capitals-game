@@ -165,14 +165,14 @@ for state in (states):
     answer = input("Please enter the state capital of " + state["name"] + ": ")
     if answer == state["capital"]:
         correct += 1
-        print("Correct!:", correct, ":)")
+        print("That's right! You've gotten", correct,"/50 correct.")
     else:
         wrong += 1
-        print("Wrong:", wrong, ":(")
-print("Game over! You got", correct, "correct and", wrong, "wrong.")
+        print("Sorry, that's wrong. You've gotten", wrong,"/50 incorrect.")
+print("Game over! You got", correct,"/50 correct and", wrong,"/50 wrong.")
 
-restart = input("Would you like to play again? [Y/N]: ")
+restart = input("Would you like to play again? Press 'Y' and enter. Use any other key to leave: ")
 if restart == "Y" or restart == "y":
     os.system("python3 capitals_game.py")
-if restart == "N" or restart == "n":
+else:
     print("Thanks for playing!")
